@@ -3,7 +3,11 @@ console.log('train ticket');
 const formEl = document.querySelector('.container')
 console.log(formEl);
 
+
+//output
 const ticketEl = document.querySelector('.ticket');
+
+
 
 
 formEl.addEventListener('submit', (e)=>{
@@ -18,20 +22,24 @@ formEl.addEventListener('submit', (e)=>{
     console.log(memberDistance, memberAge, memberTicket);
 
     if( memberAge < 18){
-        let userTicket = memberDistance/100*20;
-        console.log(userTicket);
-        
+        let userUnderTicket = memberTicket/100*20;
+        let userUnderTicketFix = userUnderTicket.toFixed(2)
+        //console.log(userTicket);
+        //modifico l'inner element dell'html per fissare un output
+        ticketEl.innerHTML = `Il prezzo del biglietto è ${userUnderTicketFix}`
+      }else if(memberAge > 65){
+
+        let userOverTicket = memberTicket/100*40;
+        let userOverTicketFix = userOverTicket.toFixed(2)
+        ticketEl.innerHTML = `Il prezzo del biglietto è ${userOverTicketFix}`
     
-    }
+      }else{ 
+        ticketEl.innerHTML = `Il prezzo del biglietto è ${memberTicket}`
+      }
     
    
 
-    const memberTicketEl = ` <div class="row mb-3">
-            <label for="inputnumber" class="age col-sm-2 col-form-label" name="memberTicket">Costo del biglietto</label>
-            <div class="col-sm-10">
-              <input type="number" class="ticket form-control" id="inputAge">
-            </div>
-          </div>` 
+
 
     
 
